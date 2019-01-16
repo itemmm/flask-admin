@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>角色管理</title>
+    <link rel="stylesheet" href="/static/layui/css/layui.css" />
+</head>
+<body>
+
+
+<div style="margin:0px; background-color: white; margin:5px 10px;">
+
+    <blockquote class="layui-elem-quote">
+        <button type="button" class="layui-btn layui-btn-small" id="add"><i class="fa fa-plus" aria-hidden="true"></i> 添加</button>
+        <div style="float:right;">
+            <div class="layui-form-item" style="margin:0;">
+                <label class="layui-form-label">关键字</label>
+                <div class="layui-inline">
+                    <input type="text" name="keyWords" id="keyWords" placeholder="请输入角色名称..." autocomplete="off" class="layui-input" />
+                </div>
+                <div class="layui-inline">
+                    <button type="button" class="layui-btn layui-btn-small" id="search">搜索</button>
+                </div>
+                <div class="layui-inline">
+                    <button type="button" class="layui-btn layui-btn-small" id="refresh">刷新</button>
+                </div>
+            </div>
+        </div>
+    </blockquote>
+
+    <table class="layui-hide" id="dataTable" lay-filter="dataTable"></table>
+</div>
+
+<script src="/static/layui/layui.js"></script>
+<script src="/static/js/manage/roleManage.js"></script>
+<script type="text/html" id="tool">
+    <a class="layui-btn layui-btn-sm" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del">删除</a>
+</script>
+</body>
+</html>

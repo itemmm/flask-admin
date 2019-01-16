@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ content.name }}</title>
+    <link rel="stylesheet" href="/static/layui/css/layui.css" />
+    <style>
+    p {
+        font-size: 20px;
+    }
+    </style>
+</head>
+<body style="padding: 30px 30px;">
+
+<script src="/static/layui/layui.js"></script>
+<script>
+    layui.use(["jquery"],function(){
+        var $ = layui.jquery;
+        $("body").html({{ content.des|tojson }});
+    })
+</script>
+</body>
+</html>

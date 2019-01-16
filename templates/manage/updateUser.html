@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑用户</title>
+    <link rel="stylesheet" href="/static/layui/css/layui.css"/>
+</head>
+<body>
+
+
+<div class="x-body">
+    <div class="layui-form layui-form-pane" style="padding: 20px 40px;">
+        <input type="hidden" name="userId" value="{{ content.user.pk_id }}" />
+
+        <div class="layui-form-item">
+            <label for="loginName" class="layui-form-label">
+                <span class="x-red">*</span>账号
+            </label>
+            <div class="layui-input-block">
+                <input value="{{ content.user.login_name }}" type="text" name="loginName" id="loginName" required="" lay-verify="required" autocomplete="off" class="layui-input" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label for="nickName" class="layui-form-label">
+                <span class="x-red">*</span>昵称
+            </label>
+            <div class="layui-input-block">
+                <input value="{{ content.user.nick_name }}" type="text" name="nickName" id="nickName" required="" lay-verify="required" autocomplete="off" class="layui-input" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">*角色</label>
+            <div class="layui-input-block">
+                <select name="role" lay-filter="role" id="role">
+                    {% for role in content.roleList %}
+                        {% if role.pk_id == content.user.role_id %}
+                            <option value="{{ role.pk_id }}" selected="">{{ role.role_name }}</option>
+                        {% else %}
+                            <option value="{{ role.pk_id }}">{{ role.role_name }}</option>
+                        {% endif %}
+                    {% endfor %}
+
+                </select>
+            </div>
+        </div>
+
+
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">*专属权限</label>
+            <div class="layui-collapse" id="extraResourceList">
+                {% for extraResource in content.extraResourceList %}
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">{{ extraResource.resourceName }}</h2>
+                    {% if extraResource.children %}
+                        <div class="layui-colla-content layui-show">
+                            {% for parentResource in extraResource.children %}
+                                {% if parentResource.checked %}
+                                <input value="{{ parentResource.resourceId }}" type="checkbox" name="extraResource" title="{{ parentResource.resourceName }}" checked="">
+                                {% else %}
+                                <input value="{{ parentResource.resourceId }}" type="checkbox" name="extraResource" title="{{ parentResource.resourceName }}">
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="layui-colla-content">已拥有{{ extraResource.resourceName }}的所有权限</div>
+                    {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">*禁用权限</label>
+            <div class="layui-collapse" id="forbiddenResourceList">
+                {% for forbiddenResource in content.forbiddenResourceList %}
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">{{ forbiddenResource.resourceName }}</h2>
+                    {% if forbiddenResource.children %}
+                        <div class="layui-colla-content layui-show">
+                        {% for parentResource in forbiddenResource.children %}
+                            {% if parentResource.checked %}
+                                <input value="{{ parentResource.resourceId }}" type="checkbox" name="forbiddenResource" title="{{ parentResource.resourceName }}" checked="">
+                            {% else %}
+                                <input value="{{ parentResource.resourceId }}" type="checkbox" name="forbiddenResource" title="{{ parentResource.resourceName }}">
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="layui-colla-content">已禁用{{ forbiddenResource.resourceName }}的所有权限</div>
+                    {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="width: 80% ;margin: 0 auto">
+            <button class="layui-btn" lay-submit="" lay-filter="save">保存</button>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+<script src="/static/layui/layui.js"></script>
+<script src="/static/js/manage/updateUser.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增文件</title>
+    <link rel="stylesheet" href="/static/layui/css/layui.css" >
+</head>
+<body>
+
+<div class="x-body">
+    <div class="layui-form layui-form-pane" style="padding: 20px 40px;">
+        <input type="hidden" name="parentId" value="{{ content.parentId }}">
+
+        <div class="layui-form-item">
+            <label for="roleName" class="layui-form-label">
+                <span class="x-red">*</span>文件名称
+            </label>
+            <div class="layui-input-block">
+                <input type="text" name="fileName" id="fileName" required="" lay-verify="required" autocomplete="off" class="layui-input" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">*文件类型</label>
+            <div class="layui-input-block">
+                <select name="fileType" lay-filter="fileType" id="fileType">
+                    <option value="0" selected="">文件夹</option>
+                    <option value="1">富文本</option>
+                    <option value="2">图片</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text layui-hide">
+            <div class="layui-input-block">
+                <textarea id="editor" style="display: none;"></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text layui-hide" id="upload">
+            <div class="layui-input-block">
+                <button type="button" class="layui-btn" id="uploadBtn">
+                    <i class="layui-icon">&#xe67c;</i>上传图片
+                </button>
+            </div>
+        </div>
+        <div class="layui-form-item" style="width: 80% ;margin: 0 auto">
+            <button class="layui-btn" lay-submit="" lay-filter="save">保存</button>
+        </div>
+
+
+    </div>
+</div>
+
+
+<script src="/static/layui/layui.js"></script>
+<script src="/static/js/content/addFile.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑参数</title>
+    <link rel="stylesheet" href="/static/layui/css/layui.css" />
+</head>
+<body>
+
+
+<div class="x-body">
+    <div class="layui-form layui-form-pane" style="padding: 20px 40px;">
+        <input type="hidden" name="keyWordId" value="{{ content.pk_id }}" />
+
+        <div class="layui-form-item">
+            <label for="loginName" class="layui-form-label">
+                <span class="x-red">*</span>参数名称
+            </label>
+            <div class="layui-input-block">
+                <input value="{{ content.key }}" type="text" name="key" id="key" required="" lay-verify="required" autocomplete="off" class="layui-input" readonly />
+            </div>
+        </div>
+
+
+        <div class="layui-form-item">
+            <label for="nickName" class="layui-form-label">
+                <span class="x-red">*</span>参数值
+            </label>
+            <div class="layui-input-block">
+                <input value="{{ content.value }}" type="text" name="value" id="value" required="" lay-verify="required" autocomplete="off" class="layui-input" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label for="nickName" class="layui-form-label">
+                <span class="x-red">*</span>参数描述
+            </label>
+            <div class="layui-input-block">
+                <input value="{{ content.des }}" type="text" name="des" id="des" required="" lay-verify="required" autocomplete="off" class="layui-input" />
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="width: 80% ;margin: 0 auto">
+            <button class="layui-btn" lay-submit="" lay-filter="save">保存</button>
+        </div>
+
+    </div>
+</div>
+
+
+
+<script src="/static/layui/layui.js"></script>
+<script src="/static/js/manage/updateSystemConfig.js"></script>
+</body>
+</html>

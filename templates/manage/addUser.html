@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加角色</title>
+    <link rel="stylesheet" href="/static/layui/css/layui.css" />
+</head>
+<body>
+
+
+<div class="x-body">
+    <div class="layui-form layui-form-pane" style="padding: 20px 40px;">
+
+        <div class="layui-form-item">
+            <label for="roleName" class="layui-form-label">
+                <span class="x-red">*</span>账号
+            </label>
+            <div class="layui-input-block">
+                <input type="text" name="loginName" id="loginName" required="" lay-verify="required" autocomplete="off" class="layui-input" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label for="roleDes" class="layui-form-label">
+                <span class="x-red">*</span>昵称
+            </label>
+            <div class="layui-input-block">
+                <input type="text" name="nickName" id="nickName" required="" lay-verify="required" autocomplete="off" class="layui-input" />
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">角色</label>
+            <div class="layui-input-block">
+                <select name="role" lay-filter="role" id="role">
+                    <option value="" selected="">请选择角色</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="width: 80% ;margin: 0 auto">
+            <button class="layui-btn" lay-submit="" lay-filter="save">保存</button>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+<script src="/static/layui/layui.js"></script>
+<script src="/static/js/manage/addUser.js"></script>
+</body>
+</html>
