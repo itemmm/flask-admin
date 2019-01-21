@@ -1,13 +1,16 @@
 # flask-admin
 flask+layui搭建管理后台
-预览地址：http://business.hemengting.top/business/index
-账号：admin
-密码：123456
 
 # 技术栈
 1. Flask
 2. layui
 
+
+预览地址：http://business.hemengting.top/business/index
+
+账号：admin
+
+密码：123456
 # 功能点
 - 系统管理
    - 角色管理
