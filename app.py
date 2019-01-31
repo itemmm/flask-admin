@@ -1,6 +1,7 @@
 from flask import Flask,redirect
 from manager.operator import business_app
 from content.content import content_app
+from test_manage.testManage import testManage_app
 from models import db
 from flask_session import Session
 import redis
@@ -12,9 +13,10 @@ import redis
 app = Flask(__name__)
 app.register_blueprint(business_app, url_prefix="/business")
 app.register_blueprint(content_app, url_prefix="/content")
+app.register_blueprint(testManage_app,url_prefix="/testManage")
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:123456@127.0.0.1:3306/business?charset=utf8mb4'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:123456@192.168.31.100:3306/business?charset=utf8mb4'
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -37,4 +39,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(debug=True,host="192.168.31.100")
+    app.run(debug=True,host="192.168.31.102")
