@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    <style>
+        pre {outline:1px solid #ccc;padding:5px;margin: 5px;}
+        .string {color:green;}
+        .number {color:darkorange;}
+        .boolean {color:blue;}
+        .null {color:magenta;}
+        .key {color:red;}
+    </style>
+</head>
+<body>
+
+<div style="float: left;width: 49%;margin-top: 20px;">
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>啊皮测试</legend>
+        <div class="layui-form layui-form-pane" style="padding: 20px 40px">
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">url</label>
+                <div class="layui-input-block">
+                    <input type="text" name="url" autocomplete="off" placeholder="请输入url" class="layui-input" />
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">method</label>
+                <div class="layui-input-block">
+                    <select name="method">
+                        <option value="GET" selected>GET</option>
+                        <option value="POST">POST</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <button class="layui-btn layui-btn-primary addHeaders">添加headers</button>
+                </div>
+            </div>
+
+            <fieldset class="layui-elem-field layui-field-title layui-hide" style="margin-top: 20px;" id="headers">
+                <legend>headers</legend>
+            </fieldset>
+
+            <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;" id="params">
+                <legend>params</legend>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">key</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="key" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">value</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="value" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <button class="layui-btn layui-btn-primary layui-btn-sm addParam">增加</button>
+                        <button class="layui-btn layui-btn-primary layui-btn-sm deleteParam">删除</button>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="layui-form-item" style="width: 80% ;margin: 0 auto">
+                <button class="layui-btn layui-btn-primary" lay-submit="" lay-filter="test">测试</button>
+            </div>
+        </div>
+    </fieldset>
+</div>
+
+
+<pre style="float: right;width: 49%;margin-top: 20px;" id="response"></pre>
+
+<script src="/static/layui/layui.js"></script>
+<script src="/static/js/test_manage/index.js"></script>
+</body>
+</html>
